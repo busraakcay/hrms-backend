@@ -1,0 +1,5 @@
+package busra.hrms.business.abstracts;
+
+public interface PositionService {
+
+}
