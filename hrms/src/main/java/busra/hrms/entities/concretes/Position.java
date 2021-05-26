@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+import busra.hrms.entities.abstracts.PositionEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,14 +17,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "positions")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Position {
+public class Position implements PositionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
-	//@Column(name = "positionName", unique = true)
-	
+		
 	@Column(name = "position_name")
 	private String positionName;
 }
