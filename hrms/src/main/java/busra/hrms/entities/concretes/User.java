@@ -31,7 +31,4 @@ public class User implements UserEntity{
 	
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "is_verified")
-	private boolean isVerified;
 }
