@@ -14,18 +14,18 @@ public class MernisServiceAdapter implements MernisCheckService {
 	
 	@Override
 	public boolean checkIfRealPerson(Unemployed unemployed) {
-		KPSPublicSoapProxy soap = new KPSPublicSoapProxy();
-		boolean check = true;
-		try {
-			check = soap.TCKimlikNoDogrula(
-					Long.parseLong(unemployed.getNationalityId()), 
-					unemployed.getName().toUpperCase(new Locale("tr")), 
-					unemployed.getSurname().toUpperCase(new Locale("tr")), 
-					unemployed.getBirthYear());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return check;
-		
+//		KPSPublicSoapProxy soap = new KPSPublicSoapProxy();
+//		boolean check = true;
+//		try {
+//			check = soap.TCKimlikNoDogrula(
+//					Long.parseLong(unemployed.getNationalityId()), 
+//					unemployed.getName().toUpperCase(new Locale("tr")), 
+//					unemployed.getSurname().toUpperCase(new Locale("tr")), 
+//					unemployed.getBirthYear());
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		return check;
+		return true;
 	}
 }

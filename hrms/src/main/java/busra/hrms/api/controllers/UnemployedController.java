@@ -29,9 +29,9 @@ public class UnemployedController {
 		return this.unemployedService.getAll();
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody Unemployed unemployed) {
-		return this.unemployedService.add(unemployed);
+	@PostMapping("/register")
+	public Result unemployedRegister(@RequestBody Unemployed unemployed) {
+		return this.unemployedService.unemployedRegister(unemployed);
 	}
 	
 }

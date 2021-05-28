@@ -29,9 +29,9 @@ public class UserController {
 		return this.userService.getAll();
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody User user) {
-		return this.userService.add(user);
+	@PostMapping("/register")
+	public Result userRegister(@RequestBody User user) {
+		return this.userService.userRegister(user);
 	}
 
 }

@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import busra.hrms.entities.abstracts.UnemployedEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "id")
 @EqualsAndHashCode(callSuper=true)
-public class Unemployed extends User implements UnemployedEntity {
+public class Unemployed extends User {
 	
 	@Column(name = "name")
 	private String name;

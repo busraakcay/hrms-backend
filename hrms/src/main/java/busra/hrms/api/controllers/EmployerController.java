@@ -29,9 +29,9 @@ public class EmployerController {
 		return this.employerService.getAll();
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer) {
-		return this.employerService.add(employer);
+	@PostMapping("/register")
+	public Result employerRegister(@RequestBody Employer employer) {
+		return this.employerService.employerRegister(employer);
 	}
 
 }

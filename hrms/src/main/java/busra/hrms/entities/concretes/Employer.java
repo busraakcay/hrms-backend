@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import busra.hrms.entities.abstracts.EmployerEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
-public class Employer extends User implements EmployerEntity{
+public class Employer extends User{
 	
 	@Column(name = "company_name")
 	private String companyName;

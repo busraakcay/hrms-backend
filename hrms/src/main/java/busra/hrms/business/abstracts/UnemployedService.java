@@ -8,5 +8,6 @@ import busra.hrms.entities.concretes.Unemployed;
 
 public interface UnemployedService {
 	DataResult<List<Unemployed>> getAll();
-	Result add(Unemployed unemployed);
+	Result unemployedRegister(Unemployed unemployed);
+	boolean findByNationalityId(String nationalityId);
 }
