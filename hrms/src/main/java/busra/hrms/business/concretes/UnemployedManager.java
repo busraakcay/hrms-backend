@@ -32,6 +32,7 @@ public class UnemployedManager implements UnemployedService{
 		super();
 		this.unemployedDao = unemployedDao;
 		this.mernisCheckService = mernisCheckService;
+		this.unemployedEmailCheckService = unemployedEmailCheckService;
 	}
 	
 	@SuppressWarnings("unlikely-arg-type")
@@ -53,7 +54,7 @@ public class UnemployedManager implements UnemployedService{
 	@Override
 	public Result unemployedRegister(Unemployed unemployed) {
 		if (findByNationalityId(unemployed.getNationalityId()) &&
-			this.mernisCheckService.checkIfRealPerson(unemployed) || //or
+			this.mernisCheckService.checkIfRealPerson(unemployed) &&
 			this.unemployedEmailCheckService.checkEmail(unemployed.getEmail()) 
 			){
 			this.unemployedDao.save(unemployed);

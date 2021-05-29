@@ -27,6 +27,12 @@ public class UserManager implements UserService{
 		this.userDao = userDao;
 	}
 	
+	@Override
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>
+		(this.userDao.findAll(),"Users are listed.");
+	}
+	
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean findByEmail(String email) {
@@ -37,12 +43,16 @@ public class UserManager implements UserService{
 		}
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
-	public DataResult<List<User>> getAll() {
-		return new SuccessDataResult<List<User>>
-		(this.userDao.findAll(),"Users are listed.");
+	public boolean findByPassword(String password) {
+		if(this.userDao.findByPassword(password).contains(password)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
-
+	
 	@Override
 	public Result userRegister(User user) {
 		if (findByEmail(user.getEmail())) {
@@ -56,13 +66,10 @@ public class UserManager implements UserService{
 
 	@Override
 	public Result signIn(String email, String password) {
-		Result login = new ErrorResult("Login unsuccessful !");
-		for (int i = 0; i < userDao.findAll().size(); i++) {
-			if (userDao.findAll().get(i).getEmail() == email
-					&& userDao.findAll().get(i).getPassword() == password) {
-				login = new SuccessResult("Login successful !");
-			}
-		}
-		return login;
+		 if(findByEmail(email) == true && findByPassword(password)) {
+			 return new SuccessResult("Login successful");
+		 }else {
+			 return new ErrorResult("Login unsuccessful");
+		 }
 	}
 }

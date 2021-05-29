@@ -9,8 +9,8 @@ import busra.hrms.entities.concretes.User;
 public interface UserService {
 	
 	Result signIn(String email, String password);
-	
 	DataResult<List<User>> getAll();
 	Result userRegister(User user);
 	boolean findByEmail(String email);
+	boolean findByPassword(String password);
 }
