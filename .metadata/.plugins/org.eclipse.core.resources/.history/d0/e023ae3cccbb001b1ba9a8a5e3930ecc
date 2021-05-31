@@ -1,5 +1,0 @@
-package busra.hrms.dataAccess.abstracts;
-
-public interface PositionDao {
-
-}

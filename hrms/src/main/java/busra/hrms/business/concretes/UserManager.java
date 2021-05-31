@@ -37,9 +37,9 @@ public class UserManager implements UserService{
 	@Override
 	public boolean findByEmail(String email) {
 		if (this.userDao.findByEmail(email).contains(email)) {
-			return false;
-		}else {
 			return true;
+		}else {
+			return false;
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class UserManager implements UserService{
 	
 	@Override
 	public Result userRegister(User user) {
-		if (findByEmail(user.getEmail())) {
+		if (findByEmail(user.getEmail()) == false) {
 			this.userDao.save(user);
 			this.emailVerificationService.emailVerificate(user.getEmail());
 			return new SuccessResult("User is added.");
@@ -66,7 +66,7 @@ public class UserManager implements UserService{
 
 	@Override
 	public Result signIn(String email, String password) {
-		 if(findByEmail(email) == true && findByPassword(password)) {
+		 if(findByEmail(email) && findByPassword(password)) {
 			 return new SuccessResult("Login successful");
 		 }else {
 			 return new ErrorResult("Login unsuccessful");

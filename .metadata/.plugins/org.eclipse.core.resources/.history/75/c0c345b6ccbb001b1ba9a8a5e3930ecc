@@ -1,9 +1,0 @@
-package busra.hrms.business.abstracts;
-
-import java.util.List;
-
-import busra.hrms.entities.concretes.Position;
-
- interface PositionService {
-	List<Position> getAll();
-}
