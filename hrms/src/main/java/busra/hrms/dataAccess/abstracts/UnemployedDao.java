@@ -8,4 +8,5 @@ import busra.hrms.entities.concretes.Unemployed;
 
 public interface UnemployedDao extends JpaRepository<Unemployed, Integer>{
 	List<Unemployed> findByNationalityId(String nationalityId);
+	
 }

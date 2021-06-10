@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -27,12 +29,18 @@ import lombok.NoArgsConstructor;
 public class Employer extends User{
 	
 	@Column(name = "company_name")
+	@NotBlank
+	@NotNull
 	private String companyName;
 	
 	@Column(name = "web_site")
+	@NotBlank
+	@NotNull
 	private String webSite;
 	
 	@Column(name = "phone_no")
+	@NotBlank
+	@NotNull
 	private String phoneNo;
 	
 	@OneToMany(mappedBy = "employer", fetch = FetchType.LAZY)

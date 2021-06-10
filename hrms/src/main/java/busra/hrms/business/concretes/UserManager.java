@@ -72,4 +72,16 @@ public class UserManager implements UserService{
 			 return new ErrorResult("Login unsuccessful");
 		 }
 	}
+	
+	/*
+	@Override
+	public Result signIn(String email, String password) {
+		User user = new User();
+		 if(userDao.findByEmail(email).toString() == user.getEmail() && 
+			userDao.findByPassword(password).toString() == user.getPassword()) {
+			 return new SuccessResult("Login successful");
+		 }else {
+			 return new ErrorResult("Login unsuccessful");
+		 }
+	}*/
 }

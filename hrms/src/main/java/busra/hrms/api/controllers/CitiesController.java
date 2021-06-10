@@ -15,11 +15,11 @@ import busra.hrms.entities.concretes.City;
 
 @RestController
 @RequestMapping("/api/cities")
-public class CityController {
+public class CitiesController {
 	
 	private CityService cityService;
 
-	public CityController(CityService cityService) {
+	public CitiesController(CityService cityService) {
 		super();
 		this.cityService = cityService;
 	}

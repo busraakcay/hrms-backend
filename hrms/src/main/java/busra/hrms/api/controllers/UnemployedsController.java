@@ -8,30 +8,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import busra.hrms.business.abstracts.EmployerService;
+import busra.hrms.business.abstracts.UnemployedService;
 import busra.hrms.core.utilities.results.DataResult;
 import busra.hrms.core.utilities.results.Result;
-import busra.hrms.entities.concretes.Employer;
+import busra.hrms.entities.concretes.Unemployed;
 
 @RestController
-@RequestMapping("/api/employers")
-public class EmployerController {
+@RequestMapping("/api/unemployeds")
+public class UnemployedsController {
 	
-	private EmployerService employerService;
+	private UnemployedService unemployedService;
 	
-	public EmployerController(EmployerService employerService) {
+	public UnemployedsController(UnemployedService unemployedService) {
 		super();
-		this.employerService = employerService;
+		this.unemployedService = unemployedService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Employer>> getAll() {
-		return this.employerService.getAll();
+	public DataResult<List<Unemployed>> getAll() {
+		return this.unemployedService.getAll();
 	}
 	
 	@PostMapping("/register")
-	public Result employerRegister(@RequestBody Employer employer) {
-		return this.employerService.employerRegister(employer);
+	public Result unemployedRegister(@RequestBody Unemployed unemployed) {
+		return this.unemployedService.unemployedRegister(unemployed);
 	}
-
+	
 }

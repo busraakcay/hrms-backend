@@ -18,9 +18,10 @@ public class VerificationManager implements VerificationService{
 		this.verificationDao = verificationDao;
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean isValid(User user) {
-		return true;
+		return this.verificationDao.equals(user);
 	}
 
 	

@@ -8,30 +8,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import busra.hrms.business.abstracts.UserService;
+import busra.hrms.business.abstracts.PositionService;
 import busra.hrms.core.utilities.results.DataResult;
 import busra.hrms.core.utilities.results.Result;
-import busra.hrms.entities.concretes.User;
+import busra.hrms.entities.concretes.Position;
+
 
 @RestController
-@RequestMapping("/api/users")
-public class UserController {
+@RequestMapping("/api/positions")
+public class PositionsController {
 	
-	private UserService userService;
+	private PositionService positionService;
 	
-	public UserController(UserService userService) {
+	public PositionsController(PositionService positionService) {
 		super();
-		this.userService = userService;
+		this.positionService = positionService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<User>> getAll() {
-		return this.userService.getAll();
+	public DataResult<List<Position>> getAll() {
+		return this.positionService.getAll();
 	}
 	
-	@PostMapping("/signin")
-	public Result signIn(@RequestBody User user) {
-		return this.userService.signIn(user.getEmail(), user.getPassword());
+	@PostMapping("/add")
+	public Result add(@RequestBody Position position) {
+		return this.positionService.add(position);
 	}
 
 }

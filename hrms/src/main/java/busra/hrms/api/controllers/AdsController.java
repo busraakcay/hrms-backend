@@ -17,11 +17,11 @@ import busra.hrms.entities.concretes.Ad;
 
 @RestController
 @RequestMapping("/api/ads")
-public class AdController {
+public class AdsController {
 	
 	private AdService adService;
 	
-	public AdController(AdService adService) {
+	public AdsController(AdService adService) {
 		super();
 		this.adService = adService;
 	}

@@ -8,31 +8,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import busra.hrms.business.abstracts.PositionService;
+import busra.hrms.business.abstracts.ResumeInfoService;
 import busra.hrms.core.utilities.results.DataResult;
 import busra.hrms.core.utilities.results.Result;
-import busra.hrms.entities.concretes.Position;
-
+import busra.hrms.entities.concretes.ResumeInfo;
 
 @RestController
-@RequestMapping("/api/positions")
-public class PositionController {
+@RequestMapping("/api/resumeInfos")
+public class ResumeInfosController {
 	
-	private PositionService positionService;
-	
-	public PositionController(PositionService positionService) {
+	private ResumeInfoService resumeInfoService;
+
+	public ResumeInfosController(ResumeInfoService resumeInfoService) {
 		super();
-		this.positionService = positionService;
+		this.resumeInfoService = resumeInfoService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Position>> getAll() {
-		return this.positionService.getAll();
+	public DataResult<List<ResumeInfo>> getAll(){
+		return this.resumeInfoService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Position position) {
-		return this.positionService.add(position);
+	public Result add(@RequestBody ResumeInfo resumeInfo) {
+		return this.resumeInfoService.add(resumeInfo);
 	}
-
+	
 }
